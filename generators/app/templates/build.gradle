@@ -1,0 +1,20 @@
+plugins {
+  id 'org.springframework.boot' version '<%=springBootVersion%>'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = '<%= javaVersion %>'
+targetCompatibility = '<%= javaVersion %>'
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile("org.springframework.boot:spring-boot-starter-web")
+
+  testCompile("org.springframework.boot:spring-boot-starter-test")
+}
