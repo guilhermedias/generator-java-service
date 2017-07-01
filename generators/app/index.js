@@ -56,6 +56,12 @@ module.exports = class extends Generator {
         name: "springBootVersion",
         message: "What Spring Boot version are you using?",
         default: '1.5.4.RELEASE'
+      },
+      {
+        type: "input",
+        name: "timeZone",
+        message: "What is the application time zone?",
+        default: 'UTC'
       }
     ];
 
