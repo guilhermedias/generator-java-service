@@ -76,6 +76,12 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
+        this.templatePath('java/ClockConfiguration.java'),
+        this.destinationPath(folders.main.java + '/config/ClockConfiguration.java'),
+        this.configuration
+      );
+
+      this.fs.copyTpl(
       this.templatePath('resources/application.properties'),
       this.destinationPath(folders.main.resources + 'application.properties'),
       this.configuration
