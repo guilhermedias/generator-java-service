@@ -88,6 +88,12 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
+       this.templatePath('java/ApplicationTest.java'),
+       this.destinationPath(folders.test.java + 'ApplicationTest.java'),
+       this.configuration
+      );
+
+    this.fs.copyTpl(
       this.templatePath('build.gradle'),
       this.destinationPath('build.gradle'),
       this.configuration
