@@ -15,6 +15,9 @@ repositories {
 
 dependencies {
   compile("org.springframework.boot:spring-boot-starter-web")
+  compile 'org.projectlombok:lombok:1.16.16'
 
+  testCompile 'com.jayway.jsonpath:json-path:2.2.0'
+  testCompile 'org.assertj:assertj-core:3.4.0'
   testCompile("org.springframework.boot:spring-boot-starter-test")
 }

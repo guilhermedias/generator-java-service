@@ -56,6 +56,12 @@ module.exports = class extends Generator {
         name: "springBootVersion",
         message: "What Spring Boot version are you using?",
         default: '1.5.4.RELEASE'
+      },
+      {
+        type: "input",
+        name: "timeZone",
+        message: "What is the application time zone?",
+        default: 'UTC'
       }
     ];
 
@@ -86,6 +92,12 @@ module.exports = class extends Generator {
       this.destinationPath(folders.main.resources + 'application.properties'),
       this.configuration
     );
+
+    this.fs.copyTpl(
+       this.templatePath('java/ApplicationTest.java'),
+       this.destinationPath(folders.test.java + 'ApplicationTest.java'),
+       this.configuration
+      );
 
     this.fs.copyTpl(
       this.templatePath('build.gradle'),
