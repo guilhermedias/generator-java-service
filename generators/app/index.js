@@ -70,22 +70,34 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-        this.templatePath('java/ClockConfiguration.java'),
-        this.destinationPath(folders.main.java + '/config/ClockConfiguration.java'),
-        this.configuration
-      );
+      this.templatePath('java/ClockConfiguration.java'),
+      this.destinationPath(folders.main.java + '/config/ClockConfiguration.java'),
+      this.configuration
+    );
 
-      this.fs.copyTpl(
+    this.fs.copyTpl(
+      this.templatePath('java/PropertiesConfiguration.java'),
+      this.destinationPath(folders.main.java + '/config/PropertiesConfiguration.java'),
+      this.configuration
+    );
+
+    this.fs.copyTpl(
       this.templatePath('resources/application.properties'),
       this.destinationPath(folders.main.resources + 'application.properties'),
       this.configuration
     );
 
     this.fs.copyTpl(
-       this.templatePath('java/ApplicationTest.java'),
-       this.destinationPath(folders.test.java + 'ApplicationTest.java'),
-       this.configuration
-      );
+      this.templatePath('resources/application-local.properties'),
+      this.destinationPath(folders.main.resources + 'application-local.properties'),
+      this.configuration
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('java/ApplicationTest.java'),
+      this.destinationPath(folders.test.java + 'ApplicationTest.java'),
+      this.configuration
+    );
 
     this.fs.copyTpl(
       this.templatePath('build.gradle'),
