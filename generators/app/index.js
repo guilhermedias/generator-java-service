@@ -64,6 +64,18 @@ module.exports = class extends Generator {
     var folders = this._folders(this.configuration);
 
     this.fs.copyTpl(
+      this.templatePath('gitignore'),
+      this.destinationPath('.gitignore'),
+      this.configuration
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('travis.yml'),
+      this.destinationPath('.travis.yml'),
+      this.configuration
+    );
+
+    this.fs.copyTpl(
       this.templatePath('java/Application.java'),
       this.destinationPath(folders.main.java + 'Application.java'),
       this.configuration
