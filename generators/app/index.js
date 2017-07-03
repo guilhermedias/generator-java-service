@@ -94,6 +94,12 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
+      this.templatePath('resources/application-test.properties'),
+      this.destinationPath(folders.test.resources + 'application-test.properties'),
+      this.configuration
+    );
+
+    this.fs.copyTpl(
       this.templatePath('java/ApplicationTest.java'),
       this.destinationPath(folders.test.java + 'ApplicationTest.java'),
       this.configuration
