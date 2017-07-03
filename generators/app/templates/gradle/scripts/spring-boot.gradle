@@ -1,0 +1,10 @@
+apply plugin: 'org.springframework.boot'
+
+bootRun {
+  environment SPRING_PROFILES_ACTIVE: environment.SPRING_PROFILES_ACTIVE ?: 'local'
+
+  if(environment.SPRING_PROFILES_ACTIVE == 'local') {
+    dependsOn 'startPostgresDocker'
+    finalizedBy 'stopPostgresDocker'
+  }
+}

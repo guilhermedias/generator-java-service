@@ -104,6 +104,12 @@ module.exports = class extends Generator {
       this.destinationPath('build.gradle'),
       this.configuration
     );
+
+    this.fs.copyTpl(
+      this.templatePath('gradle/scripts/*.gradle'),
+      this.destinationPath('gradle/scripts/'),
+      this.configuration
+    );
   }
 
   install() {
