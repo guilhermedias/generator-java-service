@@ -47,18 +47,6 @@ module.exports = class extends Generator {
       },
       {
         type: "input",
-        name: "javaVersion",
-        message: "What Java version are you using?",
-        default: '1.8'
-      },
-      {
-        type: "input",
-        name: "springBootVersion",
-        message: "What Spring Boot version are you using?",
-        default: '1.5.4.RELEASE'
-      },
-      {
-        type: "input",
         name: "timeZone",
         message: "What is the application time zone?",
         default: 'UTC'
