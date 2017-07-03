@@ -64,6 +64,12 @@ module.exports = class extends Generator {
     var folders = this._folders(this.configuration);
 
     this.fs.copyTpl(
+      this.templatePath('Procfile'),
+      this.destinationPath('Procfile'),
+      this.configuration
+    );
+
+    this.fs.copyTpl(
       this.templatePath('gitignore'),
       this.destinationPath('.gitignore'),
       this.configuration

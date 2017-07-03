@@ -2,14 +2,10 @@ plugins {
   id 'org.springframework.boot' version '1.5.4.RELEASE'
 }
 
-apply plugin: 'java'
 apply plugin: 'idea'
 
 apply from: 'gradle/scripts/spring-boot.gradle'
 apply from: 'gradle/scripts/postgres-docker.gradle'
-
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
 
 repositories {
   jcenter()
