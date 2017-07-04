@@ -12,13 +12,14 @@ repositories {
 }
 
 dependencies {
-  compile('org.springframework.boot:spring-boot-starter-web')
   compile('org.springframework.boot:spring-boot-starter-aop')
+  compile('org.springframework.boot:spring-boot-starter-web')
   compile('net.logstash.logback:logstash-logback-encoder:4.6')
   compile('org.slf4j:slf4j-api:1.7.+')
   compile('ch.qos.logback:logback-classic:1.+')
   compile('org.projectlombok:lombok:1.16.16')
 
+  compile 'org.springframework.boot:spring-boot-starter-actuator'
   compile('org.springframework.boot:spring-boot-starter-jdbc')
   compile('org.postgresql:postgresql:42.1.1')
 
