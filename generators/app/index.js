@@ -180,5 +180,9 @@ module.exports = class extends Generator {
   install() {
     this.log(chalk.green('Building your workspace'));
     shelljs.exec('gradle wrapper --gradle-version 4.0', {silent: true});
+
+    shelljs.exec('git init', {silent: true});
+    shelljs.exec('git add .', {silent: true});
+    shelljs.exec('git commit -m "Initial commit"', {silent: true});
   }
 };
