@@ -50,7 +50,13 @@ module.exports = class extends Generator {
         name: "timeZone",
         message: "What is the application time zone?",
         default: 'UTC'
-      }
+      },
+       {
+         type: "list",
+         name: "dbType",
+         choices:["jpa","jdbc"],
+         message: "Do you want to use JPA or JDBC?"
+        }
     ];
 
     return this
@@ -150,6 +156,12 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
           this.templatePath('resources/logback.xml'),
           this.destinationPath(folders.main.resources + 'logback.xml'),
+          this.configuration
+      );
+
+      this.fs.copyTpl(
+          this.templatePath('resources/flyway/*.sql'),
+          this.destinationPath(folders.main.resources + '/db/migration/'),
           this.configuration
       );
   }
