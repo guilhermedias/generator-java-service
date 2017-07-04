@@ -1,5 +1,8 @@
+sudo: required
 language: java
 jdk: oraclejdk8
+services:
+  - docker
 deploy:
   provider: heroku
   app: <%=applicationName%>
