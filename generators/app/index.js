@@ -33,6 +33,17 @@ module.exports = class extends Generator {
   }
 
   // Task methods
+  initializing() {
+    var banner ="\n" +
+                "  __  __                _     _       _        \n" +
+                " |  \\/  | __ _  ___ ___| |__ (_) __ _| |_ ___  \n" +
+                " | |\\/| |/ _` |/ __/ __| '_ \\| |/ _` | __/ _ \\ \n" +
+                " | |  | | (_| | (_| (__| | | | | (_| | || (_) |\n" +
+                " |_|  |_|\\__,_|\\___\\___|_| |_|_|\\__,_|\\__\\___/ \n" +
+                "                                               \n";
+    this.log(chalk.green(banner));
+  }
+
   prompting() {
     var questions = [
       {
