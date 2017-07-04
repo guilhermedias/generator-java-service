@@ -1,0 +1,4 @@
+test {
+  dependsOn 'startPostgresDocker'
+  finalizedBy 'stopPostgresDocker'
+}
