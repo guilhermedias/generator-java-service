@@ -4,6 +4,7 @@ plugins {
 
 apply plugin: 'idea'
 
+apply from: 'gradle/scripts/java.gradle'
 apply from: 'gradle/scripts/spring-boot.gradle'
 apply from: 'gradle/scripts/postgres-docker.gradle'
 
