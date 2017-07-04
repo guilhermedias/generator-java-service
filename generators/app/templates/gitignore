@@ -1,59 +1,11 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Gist
- @willmenn
- Sign out
- Unwatch 6
-  Star 0
- Fork 1 Solidarize/Solidarize
- Code  Issues 15  Pull requests 4  Projects 1  Wiki  Settings Insights 
-Branch: master Find file Copy pathSolidarize/.gitignore
-a01091a  on May 31
-@antoniogabrielti antoniogabrielti Add user CRUD
-2 contributors @willmenn @antoniogabrielti
-RawBlameHistory     
-39 lines (31 sloc)  463 Bytes
-*.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
-*.jar
-*.war
-*.ear
-
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-target/
-!.mvn/wrapper/maven-wrapper.jar
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
+build/
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-/.externalToolBuilders
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
+# Gradle
+.gradle/
