@@ -7,7 +7,7 @@ task stopPostgresDocker(type: Exec) {
 }
 
 def startPostgresDockerCommand(containerName, dbName, dbUsername, dbPassword) {
-    return "docker run --name ${containerName} -p 5432:5432 -e POSTGRES_DB=${dbName} -e POSTGRES_USER=${dbUsername} -e POSTGRES_PASSWORD=${dbPassword} --rm -d postgres".split(' ')
+    return "docker run --name ${containerName} -p 8092:5432 -e POSTGRES_DB=${dbName} -e POSTGRES_USER=${dbUsername} -e POSTGRES_PASSWORD=${dbPassword} --rm -d postgres".split(' ')
 }
 
 def stopPostgresDockerCommand(containerName) {
