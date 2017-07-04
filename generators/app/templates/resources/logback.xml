@@ -12,7 +12,7 @@
             <appender-ref ref="CONSOLE"/>
         </logger>
     </springProfile>
-    <springProfile name="cloud">
+    <springProfile name="production">
         <appender name="SERVER_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
             <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
                 <providers>
