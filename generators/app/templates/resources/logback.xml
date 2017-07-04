@@ -1,0 +1,47 @@
+<configuration debug="false">
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
+    <springProfile name="local, test">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <pattern>[%level]-[%mdc]-[%thread]-[%date{dd MMM yyyy;HH:mm:ss.SSS,UTC}]-[%logger{0}:%method:%line] -
+                    %msg %ex{full}%n
+                </pattern>
+            </encoder>
+        </appender>
+        <logger name="<%=defaultPackage%>" level="DEBUG" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+    </springProfile>
+    <springProfile name="cloud">
+        <appender name="SERVER_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+                <providers>
+                    <mdc/>
+                    <timestamp/>
+                    <callerData/>
+                    <message/>
+                    <stackTrace/>
+                    <threadName/>
+                    <logLevel/>
+                </providers>
+            </encoder>
+        </appender>
+        <logger name="<%=defaultPackage%>" level="INFO" additivity="false">
+            <appender-ref ref="SERVER_CONSOLE"/>
+        </logger>
+    </springProfile>
+
+    <appender name="SERVER_CONSOLE_ALL" class="ch.qos.logback.classic.AsyncAppender">
+        <springProfile name="local, test">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+        <springProfile name="production">
+            <appender-ref ref="SERVER_CONSOLE"/>
+        </springProfile>
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <root level="WARN">
+        <appender-ref ref="SERVER_CONSOLE_ALL"/>
+    </root>
+</configuration>

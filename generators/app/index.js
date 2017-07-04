@@ -129,11 +129,29 @@ module.exports = class extends Generator {
       this.configuration
     );
 
-    this.fs.copyTpl(
-      this.templatePath('gradle/scripts/*.gradle'),
-      this.destinationPath('gradle/scripts/'),
-      this.configuration
-    );
+      this.fs.copyTpl(
+          this.templatePath('gradle/scripts/*.gradle'),
+          this.destinationPath('gradle/scripts/'),
+          this.configuration
+      );
+
+      this.fs.copyTpl(
+          this.templatePath('java/advice/*.java'),
+          this.destinationPath(folders.main.java + '/advice/'),
+          this.configuration
+      );
+
+      this.fs.copyTpl(
+          this.templatePath('java/annotation/*.java'),
+          this.destinationPath(folders.main.java + '/annotation/'),
+          this.configuration
+      );
+
+      this.fs.copyTpl(
+          this.templatePath('resources/logback.xml'),
+          this.destinationPath(folders.main.resources + 'logback.xml'),
+          this.configuration
+      );
   }
 
   install() {
