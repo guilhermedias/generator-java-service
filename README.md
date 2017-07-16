@@ -14,6 +14,12 @@ To install the project:
 
 ___ 
 
+To run:
+
+`yo macchiato`
+
+___
+
 To succefull run the project you will need:
 
 - Git
