@@ -9,3 +9,7 @@ build/
 
 # Gradle
 .gradle/
+
+# Java
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
