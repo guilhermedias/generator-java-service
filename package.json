@@ -7,9 +7,9 @@
   ],
   "author": "Guilherme Dias",
   "license": "MIT",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/guilhermedias/generator-java-service.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guilhermedias/generator-java-service.git"
   },
   "files": [
     "generators"
@@ -17,6 +17,7 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "shelljs": "^0.7.8",
+    "github-api": "^3.0.0",
     "yeoman-generator": "^1.1.1"
   }
 }
