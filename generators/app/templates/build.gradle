@@ -30,6 +30,8 @@ dependencies {
   <% if(dbType != "none") {%>
   compile('org.postgresql:postgresql:42.1.1')
           <%}%>
+  compile('com.google.guava:guava:23.0')
+
   testCompile('org.springframework.boot:spring-boot-starter-test')
   testCompile('org.assertj:assertj-core:3.4.0')
   testCompile('org.hamcrest:hamcrest-all:1.3')
