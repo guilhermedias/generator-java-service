@@ -1,6 +1,6 @@
 <configuration debug="false">
     <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
-    <springProfile name="local, test">
+    <springProfile name="default, local, test">
         <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
             <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
                 <pattern>[%level]-[%mdc]-[%thread]-[%date{dd MMM yyyy;HH:mm:ss.SSS,UTC}]-[%logger{0}:%method:%line] -
@@ -32,7 +32,7 @@
     </springProfile>
 
     <appender name="SERVER_CONSOLE_ALL" class="ch.qos.logback.classic.AsyncAppender">
-        <springProfile name="local, test">
+        <springProfile name="default, local, test">
             <appender-ref ref="CONSOLE"/>
         </springProfile>
         <springProfile name="production">
