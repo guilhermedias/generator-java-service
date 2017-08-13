@@ -169,6 +169,12 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
+            this.templatePath('java/GlobalExceptionHandler.java'),
+            this.destinationPath(folders.main.java + '/controller/GlobalExceptionHandler.java'),
+            this.configuration
+        );
+
+        this.fs.copyTpl(
             this.templatePath('java/annotation/*.java'),
             this.destinationPath(folders.main.java + '/annotation/'),
             this.configuration
