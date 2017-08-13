@@ -3,7 +3,9 @@
   "version": "0.0.2",
   "description": "Java backend service generator",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "spring-boot",
+    "java"
   ],
   "author": "Guilherme Dias",
   "license": "MIT",
