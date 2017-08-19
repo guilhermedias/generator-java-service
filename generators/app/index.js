@@ -161,6 +161,12 @@ module.exports = class extends Generator {
                 this.destinationPath('gradle/scripts/'),
                 this.configuration
             );
+
+            this.fs.copyTpl(
+                this.templatePath('resources/flyway/*.sql'),
+                this.destinationPath(folders.main.resources + '/db/migration/'),
+                this.configuration
+            );
         }
         this.fs.copyTpl(
             this.templatePath('java/advice/*.java'),
@@ -183,12 +189,6 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('resources/logback.xml'),
             this.destinationPath(folders.main.resources + 'logback.xml'),
-            this.configuration
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('resources/flyway/*.sql'),
-            this.destinationPath(folders.main.resources + '/db/migration/'),
             this.configuration
         );
     }

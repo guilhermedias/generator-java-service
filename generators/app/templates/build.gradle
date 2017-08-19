@@ -21,14 +21,14 @@ dependencies {
   compile('org.slf4j:slf4j-api:1.7.+')
   compile('ch.qos.logback:logback-classic:1.+')
   compile('org.projectlombok:lombok:1.16.16')
-  compile('org.flywaydb:flyway-core:4.2.0')
 
   compile('org.springframework.boot:spring-boot-starter-actuator')
   <% if(dbType == "jpa") {%>compile('org.springframework.boot:spring-boot-starter-data-jpa')
-  <%}else{ if(dbType == "jdbc"){%>
-  compile('org.springframework.boot:spring-boot-starter-jdbc')<%}}%>
+    <%}else{ if(dbType == "jdbc"){%>
+    compile('org.springframework.boot:spring-boot-starter-jdbc')<%}}%>
   <% if(dbType != "none") {%>
-  compile('org.postgresql:postgresql:42.1.1')
+    compile('org.flywaydb:flyway-core:4.2.0')
+    compile('org.postgresql:postgresql:42.1.1')
           <%}%>
   compile('com.google.guava:guava:23.0')
 
