@@ -1,8 +1,9 @@
 sudo: required
 language: java
 jdk: oraclejdk8
+<% if(dbType != "none") {%>
 services:
-  - docker
+  - docker<%}%>
 deploy:
   provider: heroku
   app: <%=applicationName%>
