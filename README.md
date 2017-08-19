@@ -36,3 +36,41 @@ This project will create for you:
 - It will add the configuration to have Structure Logs with Logback, and Some aspects to help you log the application using MDC.
 
 ___
+
+This is the structure that macchiato will generate:
+
+```
+project
+│   .travis.yml
+│   .gitignore
+│   Procfile
+│   build.gradle
+└───gradle
+│    └───scripts
+│    │    │   java.gradle
+│    │    │   spring-boot.gradle
+│    │    │   postgres-docker.gradle
+│    │    │   test.gradle
+│
+└───src/main/java/<%defaultPackage%>
+│    │   Application.java
+│    │
+│    └───config
+│    │    │   ClockConfiguration.java
+│    │    │   PropertiesConfiguration.java
+│    └───controller
+│         │   GlobalExceptionHandler.java
+│   
+└───src/main/resources
+│    │   application.properties
+│    │   application-local.properties
+│    │   logback.xml
+│
+└───src/test/java/<%defaultPackage%>
+│    │   Application.java
+│
+└───src/test/resources
+     │   application-test.properties
+```
+
+___
