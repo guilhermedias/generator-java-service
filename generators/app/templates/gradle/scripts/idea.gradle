@@ -1,0 +1,81 @@
+apply plugin: 'idea'
+
+final CODE_STYLE_COMPONENT_TEXT = '''
+<component name='ProjectCodeStyleSettingsManager'>
+    <option name='PER_PROJECT_SETTINGS'>
+      <value>
+        <option name='CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND' value='999' />
+        <option name='NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND' value='999' />
+      </value>
+    </option>
+    <option name='USE_PER_PROJECT_SETTINGS' value='true' />
+  </component>
+'''
+
+final CODE_SYTLE_COMPONENT_NODE = new XmlParser().parseText(CODE_STYLE_COMPONENT_TEXT)
+
+final GRADLE_SETTINGS = '''
+<component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+'''
+
+final GRADLE_SETTINGS_NODE = new XmlParser().parseText(GRADLE_SETTINGS)
+
+idea {
+  project {
+
+    ipr.withXml {
+        def node = it.asNode()
+
+        //enables git mapping
+        def vcsConfig = node.component.find { it.'@name' == 'VcsDirectoryMappings' }
+        vcsConfig.mapping[0].'@vcs' = 'Git'
+        vcsConfig.mapping[0].'@directory' = '$PROJECT_DIR$'
+
+        node.append(CODE_SYTLE_COMPONENT_NODE)
+        node.append(GRADLE_SETTINGS_NODE)
+
+        //enables annotation processing. Needed for Lombok.
+        def compilerConfig = node.component.find { it.'@name' == 'CompilerConfiguration' }
+        def annotationProcessingBlock = compilerConfig.annotationProcessing[0]
+        annotationProcessingBlock.appendNode('profile', [default: 'true', name: 'Default', enabled: 'true'])
+    }
+  }
+
+  module {
+    iml.withXml {
+        def node = it.asNode()
+
+        def facetManager = node.appendNode('component', [name: 'FacetManager']);
+
+        def builder = new NodeBuilder();
+
+        //adds spring facet configuration
+        def springFacetBuilder = builder.facet(type: "Spring", name: 'Spring') {
+            configuration {
+                fileset(id: 'fileset', name: 'Spring Application Context', removed: 'false')
+            }
+        }
+
+        facetManager.append springFacetBuilder
+
+        def springFacet = facetManager.facet.find { it.@name == 'Spring' }
+        def springFacetFiles = springFacet.configuration.fileset[0]
+
+        springFacetFiles.appendNode('file', 'file://$MODULE_DIR$/src/main/java/<%=defaultPackageFolder%>/Application.java')
+    }
+  }
+}

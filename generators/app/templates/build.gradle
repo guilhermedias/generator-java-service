@@ -2,9 +2,8 @@ plugins {
   id 'org.springframework.boot' version '1.5.4.RELEASE'
 }
 
-apply plugin: 'idea'
-
 apply from: 'gradle/scripts/java.gradle'
+apply from: 'gradle/scripts/idea.gradle'
 apply from: 'gradle/scripts/spring-boot.gradle'
 <% if(dbType != "none") {%>
 apply from: 'gradle/scripts/test.gradle'

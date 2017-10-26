@@ -19,7 +19,7 @@ module.exports = class extends Generator {
     _folders(configuration) {
         var defaultPackage = configuration.defaultPackage;
         var defaultPackageFolder = defaultPackage.replace(/\./g, '/');
-
+        configuration.defaultPackageFolder = defaultPackageFolder;
         return {
             main: {
                 java: 'src/main/java/' + defaultPackageFolder + '/',
@@ -153,6 +153,11 @@ module.exports = class extends Generator {
             this.fs.copyTpl(
                 this.templatePath('gradle/scripts/spring-boot.gradle'),
                 this.destinationPath('gradle/scripts/spring-boot.gradle'),
+                this.configuration
+            );
+            this.fs.copyTpl(
+                this.templatePath('gradle/scripts/idea.gradle'),
+                this.destinationPath('gradle/scripts/idea.gradle'),
                 this.configuration
             );
         } else {
