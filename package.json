@@ -1,6 +1,6 @@
 {
   "name": "generator-macchiato",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Spring boot Application backend generator.",
   "keywords": [
     "yeoman-generator",
