@@ -1,7 +1,7 @@
 {
   "name": "generator-macchiato",
   "version": "0.0.3",
-  "description": "Java backend service generator",
+  "description": "Spring boot Application backend generator.",
   "keywords": [
     "yeoman-generator",
     "spring-boot",
